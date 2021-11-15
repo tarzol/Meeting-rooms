@@ -6,21 +6,21 @@ public class MeetingRoomController {
 
     Office office = new Office();
     public void runMenu() {
-        MeetingRoomController meetingRoomController2 = new MeetingRoomController();
-        meetingRoomController2.printMenu();
+
         Scanner scanner = new Scanner(System.in);
 
         String name;
         Boolean logOut = false;
 
         while (logOut == false ) {
-            meetingRoomController2.printMenu();
+
+            printMenu();
             System.out.print("\nKérem adja meg a kiválasztott menüpont sorszámát:   ");
             int numberOfMenu = scanner.nextInt();
 
             switch (numberOfMenu) {
                 case 1:
-                    meetingRoomController2.readOffice();
+                    readOffice();
                     break;
                 case 2:
                     office.printNames();
@@ -35,11 +35,13 @@ public class MeetingRoomController {
                     office.printAreas();
                     break;
                 case 6:
+                    scanner.nextLine();
                     System.out.println("Add meg a tárgyaló nevét: ");
                     name = scanner.nextLine();
                     office.printMeetingRoomsWithName(name);
                     break;
                 case 7:
+                    scanner.nextLine();
                     System.out.println("Add meg a tárgyaló nevének egy részét: ");
                     name = scanner.nextLine();
                     office.printMeetingRoomsContains(name);
@@ -54,7 +56,6 @@ public class MeetingRoomController {
                     break;
             }
         }
-
     }
 
     public void printMenu() {
@@ -74,9 +75,9 @@ public class MeetingRoomController {
 
         System.out.print("Add meg a tárgyaló nevét: ");
         String name = scanner.nextLine();
-        System.out.print("Add meg a tárgyaló hosszát: ");
+        System.out.print("Add meg a tárgyaló hosszát (m): ");
         int length = scanner.nextInt();
-        System.out.print("Add meg a tárgyaló szélességét: ");
+        System.out.print("Add meg a tárgyaló szélességét (m): ");
         int width = scanner.nextInt();
 
         MeetingRoom meetingRoomNew = new MeetingRoom(name, length, width);
@@ -87,6 +88,5 @@ public class MeetingRoomController {
 
         MeetingRoomController meetingRoomController = new MeetingRoomController();
         meetingRoomController.runMenu();
-        //meetingRoomController.printMenu();
     }
 }
